@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> To-Do List</title>
+    <link rel="stylesheet" href="mn.css">
+</head>
+<body>
+    <div class="container">
+        <h1>My To-Do List</h1>
+        <div class="input-group">
+            <input type="text" id="new-task" placeholder="Add new task">
+            <button id="add-task">Add</button>
+        </div>
+        <ul id="task-list"></ul>
+        <button id="clear-all">Clear All</button>
+    </div>
+    <script src="script.js"></script>
+    
+    <style>
+    h1}
+    
+          font-family:blue,sans-serif;
+          text-align:center;
+           }
+        body {
+            font-family: blue, sans-serif;
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+          background-color:lightcyan;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 8px;
+            margin-bottom: 5px;
+            background-color: #lightcyan;
+            border: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        li.completed {
+            text-decoration: line-through;
+            color: black;
+        }
+        button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: block;
+            border: none;
+            color: block;
+            border-radius: 3px;
+        }
+        button.clear-all {
+            margin-top: 20px;
+            background-color: block;
+        }
+          
+    </style>
+</head>
+
+    <script>
+        // Add a new task to the list
+        function addTask() {
+            var taskInput = document.getElementById("taskInput");
+            var taskText = taskInput.value.trim();
+            if (taskText !== "") {
+                var li = document.createElement("li");
+
+            
+                li.textContent = taskText;
+
+                // Add event listener to toggle 'completed' class
+                li.addEventListener("click", function() {
+                    this.classList.toggle("completed");
+                });
+
+                // The delete button
+                var deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "Delete";
+                deleteBtn.onclick = function() {
+                    this.parentElement.remove();
+                };
+                li.appendChild(deleteBtn);
+
+                // Add the new task to the list
+                document.getElementById("taskList").appendChild(li);
+
+            
+                taskInput.value = "";
+            }
+        }
+
+        // Clear all tasks from the list
+        function clearAllTasks() {
+            document.getElementById("taskList").innerHTML = "";
+        }
+    </script>
+</body>
+</html>
+</>
+    
+
